@@ -13,7 +13,17 @@ class Todo {
 
   @action
   checkTodo(todoId) {
-    this.todos[todoId].checked = !this.todos[todoId].checked;
+    this.todos = this.todos.map(todo => {
+      if (todo.id === todoId) {
+        todo.checked = !todo.checked;
+      }
+      return todo;
+    });
+  }
+
+  @action
+  removeTodo(todoId) {
+    this.todos = this.todos.filter(todo => todo.id !== todoId);
   }
 
   getDoneTodos() {

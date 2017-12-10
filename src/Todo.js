@@ -7,6 +7,10 @@ class Todo extends Component {
     this.props.todo.checkTodo(this.props.id);
   };
 
+  handleDelete = () => {
+    this.props.todo.removeTodo(this.props.id);
+  };
+
   render() {
     const { checked, name } = this.props;
     return (
@@ -20,7 +24,9 @@ class Todo extends Component {
           checked={checked}
         />
         <label>{name}</label>
-        <button className="destroy"> </button>{" "}
+        <button className="destroy" onClick={() => this.handleDelete()}>
+          {" "}
+        </button>
       </div>
     );
   }
