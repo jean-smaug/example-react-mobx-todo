@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Provider from "mobx-react";
+import { Provider } from "mobx-react";
 import Input from "./Input";
+import Footer from "./Footer";
 import ListTodo from "./ListTodo";
 
 import todoStore from "./models/Todo";
 
 const stores = {
-  todoStore
+  todo: todoStore
 };
 
 class App extends Component {
@@ -22,6 +23,9 @@ class App extends Component {
             <section className="main">
               <ListTodo />
             </section>
+            <footer className="footer">
+              <Footer />
+            </footer>
           </section>
         </Provider>
       </div>

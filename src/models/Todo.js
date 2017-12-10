@@ -1,8 +1,15 @@
-import { observable } from "mobx";
+import { observable, action } from "mobx";
 
-@observable
 class Todo {
-  @observer todos = [];
+  static id = 0;
+
+  @observable todos = [];
+
+  @action
+  addTodo(name) {
+    this.todos.push({ id: Todo.id, name });
+    Todo.id += 1;
+  }
 }
 
 export default new Todo();

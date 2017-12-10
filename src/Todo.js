@@ -4,8 +4,8 @@ class Todo extends Component {
   render() {
     return (
       <div className="view">
-        <input class="toggle" type="checkbox" />
-        <label> fgh </label>
+        <input className="toggle" type="checkbox" />
+        <label>{this.props.name}</label>
         <button className="destroy"> </button>{" "}
       </div>
     );
