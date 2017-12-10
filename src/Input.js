@@ -9,8 +9,6 @@ class Input extends Component {
   };
 
   addTodo = e => {
-    this.setState({ currentInputValue: e.target.value });
-
     if (e.key === "Enter" && e.target.value !== "") {
       this.props.todo.addTodo(this.state.currentInputValue);
       this.setState({ currentInputValue: "" });

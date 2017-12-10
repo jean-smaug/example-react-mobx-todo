@@ -9,10 +9,10 @@ class ListTodo extends Component {
   render() {
     return (
       <ul className="todo-list">
-        {this.props.todo.todos.map(({ id, name }) => {
+        {this.props.todo.todos.map(todo => {
           return (
-            <li key={id}>
-              <Todo name={name} />
+            <li key={todo.id}>
+              <Todo {...todo} />
             </li>
           );
         })}
