@@ -1,4 +1,4 @@
-import { observable, action, computed } from "mobx";
+import { observable, action } from "mobx";
 
 class Todo {
   static id = 0;
@@ -26,8 +26,16 @@ class Todo {
     this.todos = this.todos.filter(todo => todo.id !== todoId);
   }
 
-  getDoneTodos() {
-    return this.todos.filter(todo => todo.checked !== true).length;
+  getAllTodos() {
+    return this.todos;
+  }
+
+  getActiveTodos() {
+    return this.todos.filter(todo => todo.checked !== true);
+  }
+
+  getCompletedTodos() {
+    return this.todos.filter(todo => todo.checked === true);
   }
 }
 

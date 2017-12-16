@@ -5,9 +5,11 @@ import Footer from "./Footer";
 import ListTodo from "./ListTodo";
 
 import todoStore from "./models/Todo";
+import displayStore from "./models/Display";
 
 const stores = {
-  todo: todoStore
+  todo: todoStore,
+  display: displayStore
 };
 
 class App extends Component {
