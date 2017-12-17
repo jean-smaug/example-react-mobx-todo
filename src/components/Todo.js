@@ -4,6 +4,7 @@ import { inject } from "mobx-react";
 @inject("todo")
 class Todo extends Component {
   handleCheck = () => {
+    console.log(this.props.id);
     this.props.todo.checkTodo(this.props.id);
   };
 

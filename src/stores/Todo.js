@@ -1,29 +1,37 @@
-import { observable, action, computed } from "mobx";
+import { observable, computed } from "mobx";
+import { db } from "../database";
 
 class Todo {
   static id = 0;
-
   @observable todos = [];
 
-  @action
-  addTodo(name) {
-    this.todos.push({ id: Todo.id, name, checked: false });
-    Todo.id += 1;
-  }
-
-  @action
-  checkTodo(todoId) {
-    this.todos = this.todos.map(todo => {
-      if (todo.id === todoId) {
-        todo.checked = !todo.checked;
-      }
-      return todo;
+  constructor() {
+    db.collection("todos").onSnapshot(querySnapshot => {
+      this.todos = [];
+      querySnapshot.forEach(doc => {
+        this.todos.push({ ...doc.data(), id: doc.id });
+      });
     });
   }
 
-  @action
-  removeTodo(todoId) {
-    this.todos = this.todos.filter(todo => todo.id !== todoId);
+  addTodo(name) {
+    const todo = { name, checked: false };
+    db.collection("todos").add(todo);
+  }
+
+  async checkTodo(todoId) {
+    const documentRef = db.collection("todos").doc(todoId);
+
+    await documentRef.update({
+      checked: !(await documentRef.get()).data().checked
+    });
+  }
+
+  async removeTodo(todoId) {
+    await db
+      .collection("todos")
+      .doc(todoId)
+      .delete();
   }
 
   @computed
