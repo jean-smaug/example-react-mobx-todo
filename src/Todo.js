@@ -16,15 +16,13 @@ class Todo extends Component {
     return (
       <div className="view">
         <input
-          onClick={() => {
-            this.handleCheck();
-          }}
+          onChange={this.handleCheck}
           className="toggle"
           type="checkbox"
           checked={checked}
         />
         <label>{name}</label>
-        <button className="destroy" onClick={() => this.handleDelete()}>
+        <button className="destroy" onClick={this.handleDelete}>
           {" "}
         </button>
       </div>

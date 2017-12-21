@@ -9,9 +9,9 @@ class Display {
 
   @action
   switchDisplay(display) {
-    if (display === ALL || display === ACTIVE || display === COMPLETED)
-      console.log(display, "display");
-    this.display = display;
+    if (display === ALL || display === ACTIVE || display === COMPLETED) {
+      this.display = display;
+    }
   }
 }
 
