@@ -20,7 +20,7 @@ class Footer extends Component {
     return (
       <div>
         <span className="todo-count">
-          <strong>{this.props.todo.getActiveTodos().length}</strong>
+          <strong>{this.props.todo.activeTodos.length}</strong>
           <span> </span>
           <span>items</span>
           <span> left</span>
