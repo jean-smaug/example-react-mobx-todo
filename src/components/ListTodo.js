@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
+import { ALL, ACTIVE, COMPLETED } from "../CONSTANTS.js";
 
 import Todo from "./Todo";
 
@@ -8,13 +9,13 @@ import Todo from "./Todo";
 class ListTodo extends Component {
   renderTodos = () => {
     switch (this.props.display.display) {
-      case "ALL":
+      case ALL:
         return this.props.todo.allTodos;
 
-      case "ACTIVE":
+      case ACTIVE:
         return this.props.todo.activeTodos;
 
-      case "COMPLETED":
+      case COMPLETED:
         return this.props.todo.completedTodos;
 
       default:

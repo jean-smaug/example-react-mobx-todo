@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Provider } from "mobx-react";
-import Input from "./Input";
-import Footer from "./Footer";
-import ListTodo from "./ListTodo";
+import Input from "./components/Input";
+import Footer from "./components/Footer";
+import ListTodo from "./components/ListTodo";
 
-import todoStore from "./models/Todo";
-import displayStore from "./models/Display";
+import todoStore from "./stores/Todo";
+import displayStore from "./stores/Display";
 
 const stores = {
   todo: todoStore,

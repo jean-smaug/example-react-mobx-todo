@@ -1,8 +1,5 @@
 import { observable, action } from "mobx";
-
-const ALL = "ALL";
-const ACTIVE = "ACTIVE";
-const COMPLETED = "COMPLETED";
+import { ALL, ACTIVE, COMPLETED } from "../CONSTANTS.js";
 
 class Display {
   @observable display = ALL;
