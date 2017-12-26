@@ -1,5 +1,7 @@
 # Exemple de projet Mobx, Firebase, React
 
+<img src="doc/demo.gif" width="480" height="270">
+
 ## Regarder le code
 
 Les branches :
