@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
+import FlipMove from "react-flip-move";
 import { ALL, ACTIVE, COMPLETED } from "../CONSTANTS.js";
 
 import Todo from "./Todo";
@@ -25,7 +26,13 @@ class ListTodo extends Component {
 
   render() {
     return (
-      <ul className="todo-list">
+      <FlipMove
+        className="todo-list"
+        duration={150}
+        typeName="ul"
+        enterAnimation="elevator"
+        maintainContainerHeight={true}
+      >
         {this.renderTodos().map(todo => {
           return (
             <li key={todo.id}>
@@ -33,7 +40,7 @@ class ListTodo extends Component {
             </li>
           );
         })}
-      </ul>
+      </FlipMove>
     );
   }
 }
